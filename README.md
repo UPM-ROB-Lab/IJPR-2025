@@ -11,7 +11,14 @@ Our code has been tested with:
 Ensure that all dependencies are correctly installed in your environment for smooth execution.
 ## Experimental flow
 ### 1. **Image Selection**
-We selected 24 high-definition images of car interiors. These were divided into a training set (15 images) and a test set (9 images). To minimize the impact of vehicle brand logos on interior design judgment, the logos were obscured using a Mosaic filter.
+We selected 24 high-definition images of car interiors, which were divided into a **training set** (12 images), a **test set** (3 images), and a **validation set** (9 images). To minimize the impact of vehicle brand logos on interior design judgment, the logos were obscured using a Mosaic filter.
+
+- The images in the **training** and **test** sets are available in the directory:  
+  [Training Set and Test Set Images](./img/TrainingAndTestSet)
+  
+- The images in the **validation** set are available in the directory:  
+  [Validation Set Images](./img/VerificationSet)
+
 ### 2. **Design a Subjective Questionnaire**
 We designed a 5-point Likert scale questionnaire to collect subjective feedback on the interior designs. The content of the questionnaire is shown below.
 
@@ -20,7 +27,8 @@ We designed a 5-point Likert scale questionnaire to collect subjective feedback 
 </div>
 
 ### 3. **Stimulus Flow Presentation**
-The experiment utilized the **Psychtoolbox** in MATLAB to present images sequentially. The experimenter’s emotional responses were induced by observing the content of the displayed images, while EEG signals were simultaneously recorded.
+The experiment utilized the **Psychtoolbox** in MATLAB to present images sequentially. The experimenter’s emotional responses were induced by observing the content of the displayed images, while EEG signals were simultaneously recorded. The related code can be found in the file [VisualPresentation.m](./code/VisualPresentation.m).
+
 
 <div align="center">
   <img src="./img/flow.jpg" width="100%" />
@@ -43,12 +51,13 @@ We used deep convolutional networks, including deep separable convolution layers
 
 The model achieved an accuracy of **80.95%** on the emotion elicitation stage of the test set. Below, you can see the confusion matrix and t-SNE visualizations of the model’s classification performance.
 
-<div align="center">
-  <img src="./img/confusion.jpg" width="50%" />
-</div>
-
-<div align="center">
-  <img src="./img/tSNE.jpg" width="50%" />
+<div style="display: flex; justify-content: center; align-items: center;">
+  <div style="margin-right: 20px;">
+    <img src="./img/confusion.jpg" width="100%" />
+  </div>
+  <div>
+    <img src="./img/tSNE.jpg" width="78%" />
+  </div>
 </div>
 
 - **Neutral emotion** is represented in cyan blue.
