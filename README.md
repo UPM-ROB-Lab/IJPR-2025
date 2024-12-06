@@ -14,7 +14,7 @@ We selected 24 high-definition images of car interiors. These were divided into 
 ### 2. **Design a Subjective Questionnaire**
 We designed a 5-point Likert scale questionnaire to collect subjective feedback on the interior designs. The content of the questionnaire is shown below.
 
-![LikertScale](img\LikertScale.jpg)
+![LikertScale](/img/LikertScale.jpg)
 ### 3. **Stimulus Flow Presentation**
 The experiment utilized the **Psychtoolbox** in MATLAB to present images sequentially. The experimenter’s emotional responses were induced by observing the content of the displayed images, while EEG signals were simultaneously recorded.
 ![flow.jpg](.\img\flow.jpg)
