@@ -160,8 +160,8 @@ To generate optimized results, the following models were executed sequentially:
 
 We utilized Generative AI models developed by other researchers. Detailed installation and usage instructions for each model can be found at the following links:
 
-- [Segment Anything Model - Installation and Usage]
-- [Diffusion Model - Installation and Usage]
+- ![Segment Anything Model - Installation and Usage](https://github.com/facebookresearch/segment-anything)
+- ![Diffusion Model - Installation and Usage](https://github.com/CompVis/stable-diffusion)
 #### Iteration Process
 
 In this phase, the automobile interior image was iterated three times, with each iteration focused on specific areas and objectives. The search prompts for each iteration were as follows:
