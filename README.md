@@ -7,6 +7,7 @@ Our code has been tested with:
 - Python (version 3.11)
 - TensorFlow (version 2.16)
 - CUDA (version 11.4)
+
 Ensure that all dependencies are correctly installed in your environment for smooth execution.
 ## Experimental flow
 ### 1. **Image Selection**
