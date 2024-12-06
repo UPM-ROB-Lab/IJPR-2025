@@ -63,6 +63,7 @@ The model achieved an accuracy of **80.95%** on the emotion elicitation stage of
 - **Neutral emotion** is represented in cyan blue.
 - **Negative emotion** is represented in yellow.
 - **Positive emotion** is represented in dark blue.
+
 The confusion matrix shows that positive emotions were harder to classify compared to neutral and negative emotions, as seen in the t-SNE visualization.
 ### 5. **Design evaluation: Quantization formula calculation.**
 We propose the following quantization formula for design evaluation:
