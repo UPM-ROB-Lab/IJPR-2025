@@ -17,7 +17,7 @@ We designed a 5-point Likert scale questionnaire to collect subjective feedback 
 ![LikertScale](/img/LikertScale.jpg)
 ### 3. **Stimulus Flow Presentation**
 The experiment utilized the **Psychtoolbox** in MATLAB to present images sequentially. The experimenter’s emotional responses were induced by observing the content of the displayed images, while EEG signals were simultaneously recorded.
-![flow.jpg](.\img\flow.jpg)
+![flow.jpg](/img/flow.jpg)
 ### 4. **Data Preprocessing and Training**
 
 #### Data Preprocessing:
@@ -28,10 +28,10 @@ EEG data was collected from 34 channels, including: Fp1, Fp2, Af3, Af4, Fz, F3, 
 - **Segmentation**: EEG data was segmented into 3-second windows, resulting in data dimensions of (210, 34, 600).
 #### Training:
 We used deep convolutional networks, including deep separable convolution layers, to process the EEG data. The detailed model structure is shown below.
-![CNN.jpg](.\img\CNN.jpg)
+![CNN.jpg](/img/CNN.jpg)
 The model achieved an accuracy of **80.95%** on the emotion elicitation stage of the test set. Below, you can see the confusion matrix and t-SNE visualizations of the model’s classification performance.
-![confusion.jpg](.\img\confusion.jpg)
-![tSNE.jpg](.\img\tSNE.jpg)
+![confusion.jpg](/img/confusion.jpg)
+![tSNE.jpg](/img/tSNE.jpg)
 - **Neutral emotion** is represented in cyan blue.
 - **Negative emotion** is represented in yellow.
 - **Positive emotion** is represented in dark blue.
@@ -43,7 +43,7 @@ Score=\sum_{i=1}^N{\left[ \left( \frac{\widetilde{M_i}}{\sum_{p=1}^N{M_p}} \righ
 $$
 This formula calculates the score by integrating the EEG data from both the emotion elicitation and judgment stages, as well as the Likert scale feedback. In order to make the evaluation results of the formula more objective, the weights of the above three are set as **0.6**, **0.2** and **0.2** respectively.
 The scores of each stage (emotion elicitation and judgment) were normalized using a sliding window, as shown below.
-![sliding.jpg](.\img\sliding.jpg)
+![sliding.jpg](/img/sliding.jpg)
 Test set image detailed score calculation is shown in the figure below. The image of the car interior corresponding to the test set is visible in the folder.
 <table border="0" cellpadding="0" cellspacing="0" width="590" style="border-collapse:collapse;table-layout:fixed;width:444pt">
   <col width="134" style="mso-width-source:userset;mso-width-alt:4778;width:101pt">
