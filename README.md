@@ -51,13 +51,11 @@ We used deep convolutional networks, including deep separable convolution layers
 
 The model achieved an accuracy of **80.95%** on the emotion elicitation stage of the test set. Below, you can see the confusion matrix and t-SNE visualizations of the model’s classification performance.
 
-<div style="display: flex; justify-content: center; align-items: center;">
-  <div style="margin-right: 20px;">
-    <img src="./img/confusion.jpg" width="100%" />
-  </div>
-  <div>
-    <img src="./img/tSNE.jpg" width="78%" />
-  </div>
+<div align="center">
+  <img src="./img/confusion.jpg" width="50%" />
+</div>
+<div align="center">
+  <img src="./img/tSNE.jpg" width="50%" />
 </div>
 
 - **Neutral emotion** is represented in cyan blue.
