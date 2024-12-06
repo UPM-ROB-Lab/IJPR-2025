@@ -48,7 +48,7 @@ The model achieved an accuracy of **80.95%** on the emotion elicitation stage of
 </div>
 
 <div align="center">
-  <img src="./img/tSNE.jpg" width="65%" />
+  <img src="./img/tSNE.jpg" width="50%" />
 </div>
 
 - **Neutral emotion** is represented in cyan blue.
