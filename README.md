@@ -1,6 +1,6 @@
-# A novel Generative AI aided smart design method based on imaginal thinking driven retrieve-prompt
+# A Novel Generative AI Aided Smart Design Method Based on Imaginal Thinking Driven Retrieve-prompt
 ## Introduction
-This work is based on our CIRP 2025 paper titled _A Novel Generative AI Retrieve-Prompt-Aided Smart Design Method Based on Imaginal Thinking_. We propose a Generative AI retrieval-prompt method leveraging imaginal thinking to assist in smart design. This approach realizes the iterative optimization of automotive interior image. Below, we detail the implementation process of our method.
+This work is based on our CIRP 2025 paper titled _A Novel Generative AI Aided Smart Design Method Based on Imaginal Thinking Driven Retrieve-prompt_. We propose a Generative AI retrieval-prompt method leveraging imaginal thinking to assist in smart design. This approach realizes the iterative optimization of automotive interior image. Below, we detail the implementation process of our method.
 ## Dependencies
 ### Requirements:
 Our code has been tested with:
