@@ -49,7 +49,7 @@ while timer < duration
     %% Display stimulus screen at 5 seconds
     if mod(timer, durationPerRound) == 5
         % Select a different image file for each round. After each round, change the image (expected 16 images, 10 for cross-validation and training; 6 for testing)
-        imageFile = sprintf('D:\\CIRP2025\\experiment\\scheme1\\scheme1.jpg');
+        imageFile = sprintf('D:\\CIRP2025\\experiment\\car1\\car1.jpg');
         % Read and draw the image
         imageData = imread(imageFile); % Read image data
         texture = Screen('MakeTexture', window, imageData); % Create texture

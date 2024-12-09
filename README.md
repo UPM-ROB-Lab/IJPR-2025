@@ -11,13 +11,13 @@ Our code has been tested with:
 Ensure that all dependencies are correctly installed in your environment for smooth execution.
 ## Experimental flow
 ### 1. **Image Selection**
-We selected 24 high-definition images of car interiors, which were divided into a **training set** (12 images), a **test set** (3 images), and a **validation set** (9 images). To minimize the impact of vehicle brand logos on interior design judgment, the logos were obscured using a Mosaic filter.
+We selected 24 high-definition images of car interiors, which were divided into a **training set** and a **validation set** (15 images), and a **test set** (9 images). To minimize the impact of vehicle brand logos on interior design judgment, the logos were obscured using a Mosaic filter.
 
-- The images in the **training** and **test** sets are available in the directory:  
-  [Training Set and Test Set Images](./img/TrainingAndTestSet)
+- The images in the **training** and **validation** sets are available in the directory:  
+  [Training Set and Validation Set Images](./img/TrainingAndVerificationSet)
   
-- The images in the **validation** set are available in the directory:  
-  [Validation Set Images](./img/VerificationSet)
+- The images in the **test** set are available in the directory:  
+  [Test Set Images](./img/TestSet)
 
 ### 2. **Design a Subjective Questionnaire**
 We designed a 5-point Likert scale questionnaire to collect subjective feedback on the interior designs. The content of the questionnaire is shown below.
@@ -27,7 +27,7 @@ We designed a 5-point Likert scale questionnaire to collect subjective feedback 
 </div>
 
 ### 3. **Stimulus Flow Presentation**
-The experiment utilized the **Psychtoolbox** in MATLAB to present images sequentially. The experimenter’s emotional responses were induced by observing the content of the displayed images, while EEG signals were simultaneously recorded. The related code can be found in the file [VisualPresentation.m](./code/VisualPresentation.m).
+The experiment utilized the **Psychtoolbox** in MATLAB to present images sequentially. The experimenter's emotional responses were induced by observing the content of the displayed images, while EEG signals were simultaneously recorded. The related code can be found in the file [VisualPresentation.m](./code/VisualPresentation.m).
 
 
 <div align="center">
@@ -42,8 +42,10 @@ EEG data was collected from 34 channels, including: Fp1, Fp2, Af3, Af4, Fz, F3, 
 - **Filtering**: We applied band-pass filtering to the raw data and extracted relevant frequency band features.
 - **Resampling**: Data was downsampled to 200Hz.
 - **Segmentation**: EEG data was segmented into 3-second windows, resulting in data dimensions of (210, 34, 600).
+
+The related code can be found in the file [Preprocess.m](./code/Preprocess.m).
 #### Training:
-We used deep convolutional networks, including deep separable convolution layers, to process the EEG data. The detailed model structure is shown below.
+We used deep convolutional networks, including deep separable convolution layers, to process the EEG data. The related code can be found in the [EEGCNN.py](./code/EEGCNN.py). The detailed model structure is shown below.
 
 <div align="center">
   <img src="./img/CNN.jpg" width="90%" />
