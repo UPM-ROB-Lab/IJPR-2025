@@ -34,10 +34,21 @@ The experiment utilized the **Psychtoolbox** in MATLAB to present images sequent
   <img src="./img/flow.jpg" width="100%" />
 </div>
 
+The detailed experiment scene is shown in the figure below.
+
+<div align="center">
+  <img src="./img/scene.jpg" width="75%" />
+</div>
+
 ### 4. **Data Preprocessing and Training**
 
 #### Data Preprocessing:
-EEG data was collected from 34 channels, including: Fp1, Fp2, Af3, Af4, Fz, F3, F4, F7, F8, FC1, FC2, FC5, FC6, Cz, C3, C4, T7, T8, CP1, CP2, CP5, CP6, Pz, P3, P4, P7, P8, PO3, PO4, PO7, PO8, Oz, O1, O2.
+EEG data was collected from 34 channels, including: Fp1, Fp2, Af3, Af4, Fz, F3, F4, F7, F8, FC1, FC2, FC5, FC6, Cz, C3, C4, T7, T8, CP1, CP2, CP5, CP6, Pz, P3, P4, P7, P8, PO3, PO4, PO7, PO8, Oz, O1, O2. The channel location diagram is as follows.
+
+<div align="center">
+  <img src="./img/channels.jpg" width="48%" /> <img src="./img/channels2.jpg" width="47.5%" />
+</div>
+
 
 - **Filtering**: We applied band-pass filtering to the raw data and extracted relevant frequency band features.
 - **Resampling**: Data was downsampled to 200Hz.
@@ -54,10 +65,7 @@ We used deep convolutional networks, including deep separable convolution layers
 The model achieved an accuracy of **80.95%** on the emotion elicitation stage of the test set. Below, you can see the confusion matrix and t-SNE visualizations of the model’s classification performance.
 
 <div align="center">
-  <img src="./img/confusion.jpg" width="50%" />
-</div>
-<div align="center">
-  <img src="./img/tSNE.jpg" width="50%" />
+  <img src="./img/confusion.jpg" width="43%" /> <img src="./img/tSNE.jpg" width="40%" />
 </div>
 
 - **Neutral emotion** is represented in cyan blue.
