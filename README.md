@@ -205,5 +205,9 @@ Each iteration generates a series of images, which can be found in the output fo
 
 
 ## Acknowledgments
-The authors greatly appreciate
-[Include any acknowledgments here.]
+
+The authors greatly appreciate the creators of the following models:
+[Segment Anything Model](https://github.com/facebookresearch/segment-anything) by Kirillov et al and
+[Stable Diffusion](https://github.com/CompVis/stable-diffusion) by Robin Rombach et al.
+Their innovative work and contributions have been instrumental in the development of this project.
+
