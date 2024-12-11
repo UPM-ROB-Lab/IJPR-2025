@@ -13,11 +13,16 @@ loaded_data = scipy.io.loadmat(mat_file_path)
 data = loaded_data['variables']
 # Reshape the data to fit the model input shape (1 sample, 34 channels, 8400 samples)
 data = data.reshape(1, 34, 8400)
+# If converting to prediction for the judgment phase, the data dimension is changed to (1 sample, 34 channels, 1200 samples)
+# The stimulus duration for the emotion elicitation phase is selected as 42 seconds, while the stimulus duration for the emotion judgment phase is selected as 6 seconds
+# data = data.reshape(1, 34, 1200)
 print("Data shape:", data.shape)
 
 # Define window size and stride for sliding window approach
 window_size = 600
 stride = 600
+# If converting to prediction for the judgment phase, the sliding window step size is set to 100
+# stride = 100
 
 # Initialize a list to store all predictions for each recognition process
 all_predictions = []
