@@ -82,6 +82,7 @@ scheme_name= parsed_result["Design Evaluation and Market Trends"]["Modify automo
 print(scheme_name)
 parsed_result = parse_prompt(prompt_text)
 requirements = parsed_result["Design Evaluation and Market Trends"]["Modify requirements"]
+modified_positions = parsed_result["Customer Need"]["Modified Positions"]
 
 if requirements:
     prompt_extraction = ", ".join(requirements)  # Use the comma-separated nouns as prompt
@@ -91,8 +92,8 @@ print(prompt_extraction) # Output: Ergonomics, Aesthetics, Automatic transmissio
 
 '''SAM'''
 # Build the image path
-image_folder = 'D:\\CIRP2025\\experiment\\scheme'  # Folder where images are located
-image_path = os.path.join(image_folder, f"{scheme_name}.jpg") # Use f-string to format the string and add .jpg suffix
+image_folder = 'D:\\CIRP2025\\experiment\\scheme'
+image_path = os.path.join(image_folder, f"{scheme_name}.jpg") 
 
 image = cv2.imread(image_path)
 image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
@@ -152,12 +153,12 @@ plt.show()
 predictor = SamPredictor(sam)
 predictor.set_image(image)
 input_boxes_data = {
-    "LeftControlButton": [0, 0, 268, 923],
-    "Seat": [0, 780, 1350, 920],
-    "SteeringWheel": [200, 300, 580, 630],
-    "CentrolConsole": [580, 450, 840, 650],
-    "GearsbiftLever": [600, 630, 820, 920],
-    "RightControlButton": [1150, 0, 1388, 923],
+    "The control button": [0, 0, 268, 923],
+    "The seat": [0, 780, 1350, 920],
+    "The steering wheel": [200, 300, 580, 630],
+    "The centrol console": [580, 450, 840, 650],
+    "The gearshift lever": [600, 630, 820, 920],
+    "The control button (right)": [1150, 0, 1388, 923],
 }
 
 # Create torch.tensor
@@ -203,10 +204,11 @@ except Exception as e:
 # Move the pipeline to the specified device
 pipe = pipe.to(device)
 
-
+image2_folder = 'D:\\CIRP2025\\experiment\\scheme'
+image2_path = os.path.join(image_folder, f"{modified_positions}.jpg") 
 # Load customer need modified position image and resize
 try:
-    init_image = Image.open(image_path).convert("RGB").resize((600,450))
+    init_image = Image.open(image2_path).convert("RGB").resize((600,450))
 except FileNotFoundError:
     print("The specified image file cannot be found. Please check the path.")
     exit()
@@ -230,7 +232,7 @@ except Exception as e:
 
 # Save the generated image
 try:
-    images[0].save("D:\\CIRP2025\\experiment\\scheme\\generated_image.png")
+    images[0].save("D:\\CIRP2025\\experiment\\scheme\\generated_image.jpg")
     print("Image has been saved.")
 except Exception as e:
     print(f"Error saving the image: {e}")
