@@ -3,10 +3,10 @@ import matplotlib.pyplot as plt
 import torch
 import numpy as np
 from segment_anything import SamAutomaticMaskGenerator, sam_model_registry
-import sys
-sys.path.append("..")
 from segment_anything import sam_model_registry, SamPredictor
 import os
+import sys
+sys.path.append("..")
 
 '''Prompt'''
 # Define the parsing function
