@@ -75,9 +75,11 @@ The model achieved an accuracy of **80.95%** on the emotion elicitation stage of
 The confusion matrix shows that positive emotions were harder to classify compared to neutral and negative emotions, as seen in the t-SNE visualization.
 ### 5. **Design evaluation: Quantization formula calculation.**
 We propose the following quantization formula for design evaluation:
+
 $$
 Score=\sum_{i=1}^N{\left[ \left( \frac{\widetilde{M_i}}{\sum_{p=1}^N{M_p}} \right) \cdot \left( \frac{\alpha _i-\alpha _{i,\min}}{\alpha _{i,\max}-\alpha _{i,\min}} \right) \right]}+\widetilde{C}
 $$
+
 This formula calculates the score by integrating the EEG data from both the emotion elicitation and judgment stages, as well as the Likert scale feedback. In order to make the evaluation results of the formula more objective, the weights of the above three are set as **0.6**, **0.2** and **0.2** respectively.
 The scores of each stage (emotion elicitation and judgment) were normalized using a sliding window, as shown below.
 <div align="center">
