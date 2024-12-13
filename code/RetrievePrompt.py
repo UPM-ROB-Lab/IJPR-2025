@@ -7,17 +7,18 @@ import sys
 sys.path.append("..")
 from segment_anything import sam_model_registry, SamPredictor
 import os
-'''prompt'''
-# 定义解析函数
+
+'''Prompt'''
+# Define the parsing function
 def parse_prompt(prompt):
-    # 按分号分割字符串
+    # Split the string by semicolon
     parts = prompt.split('; ')
     
-    # 确保提取的部分足够
+    # Ensure there are enough parts
     if len(parts) != 3:
-        raise ValueError("提示信息格式不正确，应该包含三个部分")
+        raise ValueError("Prompt format is incorrect, it should contain three parts")
 
-    # 解析 Customer Need 部分
+    # Parse the Customer Need part
     customer_need = parts[0].strip()
     need_parts = customer_need[1:-1].split(', ')
     need_dict = {
@@ -25,10 +26,10 @@ def parse_prompt(prompt):
         "Score": need_parts[1].strip()
     }
 
-    # 解析 Functional Requirement 部分
+    # Parse the Functional Requirement part
     functional_requirement = parts[1].strip()
 
-    # 解析 Design Evaluation and Market Trends 部分
+    # Parse the Design Evaluation and Market Trends part
     evaluation_and_trends = parts[2].strip().split(' + ')
     evaluation_parts = evaluation_and_trends[0][1:-1].split(', ')
     trends_parts = evaluation_and_trends[1][1:-1].split(', ')
@@ -38,7 +39,7 @@ def parse_prompt(prompt):
         "Modify requirements": [trend.strip() for trend in trends_parts]
     }
 
-    # 创建最终结果字典
+    # Create the final result dictionary
     result = {
         "Customer Need": need_dict,
         "Functional Requirement": functional_requirement,
@@ -67,13 +68,13 @@ def show_box(box, ax):
     w, h = box[2] - box[0], box[3] - box[1]
     ax.add_patch(plt.Rectangle((x0, y0), w, h, edgecolor='green', facecolor=(0,0,0,0), lw=2))    
 
-# 从txt文件中读取提示内容
+# Read the prompt content from the txt file
 with open('prompt.txt', 'r') as file:
     prompt_text = file.read().strip()
 
-# 解析提示
+# Parse the prompt
 parsed_result = parse_prompt(prompt_text)
-# 输出结果
+# Output the result
 print(parsed_result)
 
 
@@ -83,15 +84,15 @@ parsed_result = parse_prompt(prompt_text)
 requirements = parsed_result["Design Evaluation and Market Trends"]["Modify requirements"]
 
 if requirements:
-    prompt_extraction = ", ".join(requirements)  # 直接用逗号分隔的名词作为 prompt
+    prompt_extraction = ", ".join(requirements)  # Use the comma-separated nouns as prompt
 else:
-    prompt_extraction = "" #如果没有提取到，prompt设置为空字符串，避免报错
-print(prompt_extraction) #输出：Ergonomics, Aesthetics, Automatic transmission
+    prompt_extraction = "" # If nothing is extracted, set the prompt as an empty string to avoid errors
+print(prompt_extraction) # Output: Ergonomics, Aesthetics, Automatic transmission
 
 '''SAM'''
-# 构建图像路径
-image_folder = 'D:\\CIRP2025\\experiment\\scheme'  # 图片所在的文件夹
-image_path = os.path.join(image_folder, f"{scheme_name}.jpg") #使用f-string格式化字符串，添加.jpg后缀
+# Build the image path
+image_folder = 'D:\\CIRP2025\\experiment\\scheme'  # Folder where images are located
+image_path = os.path.join(image_folder, f"{scheme_name}.jpg") # Use f-string to format the string and add .jpg suffix
 
 image = cv2.imread(image_path)
 image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
@@ -105,27 +106,27 @@ sam.to(device=device)
 
 mask_generator = SamAutomaticMaskGenerator(sam)
 masks = mask_generator.generate(image)
-# 输出 masks 的数量
+# Output the number of generated masks
 num_masks = len(masks)
-print(f"生成的掩码数量：{num_masks}")
+print(f"Number of masks generated: {num_masks}")
 
-# 显示图像和掩码
+# Display the image and masks
 plt.figure(figsize=(10, 10))
 plt.imshow(image)
 
-# 遍历所有生成的掩码并叠加显示
+# Loop through all generated masks and overlay them
 for mask_data in masks:
-    mask = mask_data['segmentation']  # 获取实际的掩码
-    color = np.concatenate([np.random.random(3), np.array([0.6])], axis=0) # 生成随机颜色和透明度
+    mask = mask_data['segmentation']  # Get the actual mask
+    color = np.concatenate([np.random.random(3), np.array([0.6])], axis=0) # Generate random color with transparency
     h, w = mask.shape
     mask_image = mask.reshape(h, w, 1) * color.reshape(1, 1, -1)
     plt.imshow(mask_image)
 
-plt.axis('off')  # 关闭坐标轴
+plt.axis('off')  # Turn off the axis
 plt.show()
 
 
-# 可视化掩码的另一种更清晰的方式（显示每个掩码的边界框和分数）
+# Another clearer way to visualize masks (display bounding boxes and scores of each mask)
 def show_anns(anns):
     if len(anns) == 0:
         return
@@ -159,7 +160,7 @@ input_boxes_data = {
     "RightControlButton": [1150, 0, 1388, 923],
 }
 
-# 创建 torch.tensor
+# Create torch.tensor
 input_boxes = torch.tensor(list(input_boxes_data.values()), device=predictor.device)
 
 transformed_boxes = predictor.transform.apply_boxes_torch(input_boxes, image.shape[:2])
@@ -186,50 +187,50 @@ import torch
 from diffusers import StableDiffusionImg2ImgPipeline
 from PIL import Image
 
-# 检查是否有可用的 CUDA 设备
+# Check if CUDA device is available
 device = "cuda" if torch.cuda.is_available() else "cpu"
 
-# 使用 SD 1.5 模型
+# Use SD 1.5 model
 model_id = "D:\\CIRP2025\\stable-diffusion\\model\\stable-diffusion-v1-5"
 
-# 加载 pipeline，根据设备类型设置 torch_dtype
+# Load the pipeline, set torch_dtype based on the device type
 try:
     pipe = StableDiffusionImg2ImgPipeline.from_pretrained(model_id, torch_dtype=torch.float16 if device == "cuda" else torch.float32, use_auth_token=True)
 except Exception as e:
-    print(f"加载模型时发生错误: {e}")
+    print(f"Error loading the model: {e}")
     exit()
 
-# 将 pipeline 移动到指定设备
+# Move the pipeline to the specified device
 pipe = pipe.to(device)
 
 
-# 加载customer need修改部位图像，并调整大小
+# Load customer need modified position image and resize
 try:
     init_image = Image.open(image_path).convert("RGB").resize((600,450))
 except FileNotFoundError:
-    print("找不到指定的图像文件。请检查路径是否正确。")
+    print("The specified image file cannot be found. Please check the path.")
     exit()
 except Exception as e:
-    print(f"打开图像文件时发生错误: {e}")
+    print(f"Error opening the image file: {e}")
     exit()
 
-# 设置提示词、强度和其他参数
+# Set the prompt, strength, and other parameters
 prompt = prompt_extraction
 strength = 0.7
 guidance_scale = 7.5
 num_inference_steps = 50
-generator = torch.Generator(device=device).manual_seed(1024)  # 设置随机种子以获得可重复的结果
+generator = torch.Generator(device=device).manual_seed(1024)  # Set random seed for reproducibility
 
-# 进行图像生成，添加generator
+# Generate the image with the generator
 try:
     images = pipe(prompt=prompt, init_image=init_image, strength=strength, guidance_scale=guidance_scale, num_inference_steps=num_inference_steps, generator=generator).images
 except Exception as e:
-    print(f"生成图像时发生错误: {e}")
+    print(f"Error generating the image: {e}")
     exit()
 
-# 保存生成的图像
+# Save the generated image
 try:
     images[0].save("D:\\CIRP2025\\experiment\\scheme\\generated_image.png")
-    print("图像已保存")
+    print("Image has been saved.")
 except Exception as e:
-    print(f"保存图像时发生错误: {e}")
+    print(f"Error saving the image: {e}")
