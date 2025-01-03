@@ -1,23 +1,25 @@
-# A Novel Generative AI Aided Smart Design Method Based on Imaginal Thinking Driven Retrieve-prompt
+# A Novel Generative AI-Aided Smart Design Method Driven by Retrieve-Prompt Based on Imaginal Thinking
 ## Introduction
-This work is based on our CIRP 2025 paper titled _A Novel Generative AI Aided Smart Design Method Based on Imaginal Thinking Driven Retrieve-prompt_. We propose a Generative AI retrieval-prompt method leveraging imaginal thinking to assist in smart design. This approach realizes the iterative optimization of automotive interior image. Below, we detail the implementation process of our method.
+This work is based on our CIRP 2025 paper titled _A Novel Generative AI-Aided Smart Design Method Driven by Retrieve-Prompt Based on Imaginal Thinking_. We propose a Generative AI retrieval-prompt strategy leveraging imaginal thinking to assist in smart design. This approach realizes the iterative optimization of automotive interior image. Below, we detail the implementation process of our method.
 ## Dependencies
 ### Requirements:
 Our code has been tested with:
 - Python (version 3.11)
 - TensorFlow (version 2.16)
 - CUDA (version 11.4)
+- Psychtoolbox (version 3.0.19)
+- EEGLAB (version v 2023.1)
 
 Ensure that all dependencies are correctly installed in your environment for smooth execution.
 ## Experimental flow
 ### 1. **Image Selection**
-We selected 24 high-definition images of car interiors, which were divided into a **training set** and a **validation set** (15 images), and a **test set** (9 images). To minimize the impact of vehicle brand logos on interior design judgment, the logos were obscured using a Mosaic filter.
+We selected 24 high-definition images of automotive interiors, which were divided into a **training set** and a **test set**. To minimize the impact of vehicle logos on interior design judgment, the logos were mosaiced.
 
-- The images in the **training** and **validation** sets are available in the directory:  
-  [Training Set and Validation Set Images](./img/TrainingAndVerificationSet)
+- The partial images in the **training set** are available in the directory:  
+  [Training Set Images](./data/TrainingSet)
   
 - The images in the **test** set are available in the directory:  
-  [Test Set Images](./img/TestSet)
+  [Test Set Images](./data/TestSet)
 
 ### 2. **Design a Subjective Questionnaire**
 We designed a 5-point Likert scale questionnaire to collect subjective feedback on the interior designs. The content of the questionnaire is shown below.
@@ -54,7 +56,7 @@ EEG data was collected from 34 channels, including: Fp1, Fp2, Af3, Af4, Fz, F3, 
 - **Resampling**: Data was downsampled to 200Hz.
 - **Segmentation**: EEG data was segmented into 3-second windows, resulting in data dimensions of (210, 34, 600).
 
-The related code can be found in the file [Preprocess.m](./code/Preprocess.m).
+The related code uses **EEGLAB toolbox** in MATLAB and can be found in the file [Preprocess.m](./code/Preprocess.m).
 #### Training:
 We used deep convolutional networks, including deep separable convolution layers, to process the EEG data. The related code can be found in the [EEGCNN.py](./code/EEGCNN.py). The detailed model structure is shown below.
 
@@ -62,15 +64,15 @@ We used deep convolutional networks, including deep separable convolution layers
   <img src="./img/CNN.jpg" width="90%" />
 </div>
 
-The model achieved an accuracy of **80.95%** on the emotion elicitation stage of the test set. Below, you can see the confusion matrix and t-SNE visualizations of the model’s classification performance.
+The accuracy of this model in the emotion elicitation stage of the test set is shown in the figure below. You can see the confusion matrix and t-SNE visualizations of the model’s classification performance.
 
 <div align="center">
   <img src="./img/confusion.jpg" width="43%" /> <img src="./img/tSNE.jpg" width="40%" />
 </div>
 
+- **Positive emotion** is represented in dark blue.
 - **Neutral emotion** is represented in cyan blue.
 - **Negative emotion** is represented in yellow.
-- **Positive emotion** is represented in dark blue.
 
 The confusion matrix shows that positive emotions were harder to classify compared to neutral and negative emotions, as seen in the t-SNE visualization.
 ### 5. **Design evaluation: Quantization formula calculation.**
@@ -165,10 +167,12 @@ Test set image detailed score calculation is shown in the figure below. The imag
 </table>
 
 ### 6. **Retrieve prompt generation**
-The retrieve-prompt format is as follows:
+The format for the retrieval prompt input to the Generative AI is:
+
 ``` 
 < Customer need (Optimized region, Likert scale score); Functional requirement; Design evaluation (Scheme, EEG objective score) + Market trends >
 ```
+
 - **Customer Need**: Identifies the area in the design needing improvement based on the lowest Likert scale score.
 - **Functional Requirement**: Defines the criteria for image segmentation, based on common functional areas in automotive interiors.
 - **Design Evaluation**: Uses the previously introduced quantization formula to score the design image results.
