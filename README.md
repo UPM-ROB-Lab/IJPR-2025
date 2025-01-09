@@ -54,7 +54,7 @@ EEG data was collected from 34 channels, including: Fp1, Fp2, Af3, Af4, Fz, F3, 
 
 - **Filtering**: We applied band-pass filtering to the raw data and extracted relevant frequency band features.
 - **Resampling**: Data was downsampled to 200Hz.
-- **Segmentation**: EEG data was segmented into 3-second windows, resulting in data dimensions of (210, 34, 600).
+- **Segmentation**: EEG data was segmented into 3-second windows.
 
 The related code uses **EEGLAB toolbox** in MATLAB and can be found in the file [Preprocess.m](./code/Preprocess.m).
 #### Training:
@@ -205,7 +205,7 @@ In this phase, the automobile interior image was iterated three times, with each
 #### Model Functions
 
 - **Segment Anything Model (SAM):** Extracts customer need and functional requirement in the retrieve prompt. We utilized [the ViT-H model](https://github.com/facebookresearch/segment-anything?tab=readme-ov-file) within SAM for image segmentation to extract the regions of interest.
-- **Diffusion Model:** Extracts the constraint conditions in the retrieve prompt. We used [the Stable-Diffusion-v1-5 model](https://huggingface.co/stable-diffusion-v1-5/stable-diffusion-v1-5) for iterative image generation, where each iteration refines the design based on the specific requirements and constraints extracted from the prompts.
+- **Diffusion Model:** Extracts the constraints in the retrieve prompt. We used [the Stable-Diffusion-v1-5 model](https://huggingface.co/stable-diffusion-v1-5/stable-diffusion-v1-5) for iterative image generation, where each iteration refines the design based on the specific requirements and constraints extracted from the prompts.
 #### Results
 Each iteration generates a series of images, which can be found in the output folder. For each image, we apply a quantitative scoring formula to assess its quality. The generated images, along with their corresponding scores, reflect the results of each iteration and the refinement process based on the retrieve prompt.
 
