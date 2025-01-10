@@ -208,7 +208,10 @@ In this phase, the automobile interior image was iterated three times, with each
 - **Diffusion Model:** Extracts the constraints in the retrieve prompt. We used [the Stable-Diffusion-v1-5 model](https://huggingface.co/stable-diffusion-v1-5/stable-diffusion-v1-5) for iterative image generation, where each iteration refines the design based on the specific requirements and constraints extracted from the prompts.
 #### Results
 Each iteration generates a series of images, which can be found in the output folder. For each image, we apply a quantitative scoring formula to assess its quality. The generated images, along with their corresponding scores, reflect the results of each iteration and the refinement process based on the retrieve prompt.
-
+The design images with the highest scores for each iteration are below.
+<div align="center">
+  <img src="./data/DMIteration/Iteration1/11.jpg" width="30%" /> <img src="./data/DMIteration/Iteration2/23.jpg" width="30%" /> <img src="./data/DMIteration/Iteration3/31.jpg" width="32.3%" />
+</div>
 
 ## Acknowledgments
 
