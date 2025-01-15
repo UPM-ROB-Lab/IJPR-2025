@@ -180,7 +180,7 @@ The format for the retrieval prompt input to the Generative AI is:
 ### 7. Iterative optimization phase.
 To generate optimized results, the following models were executed sequentially:
 1. **Segment Anything Model (SAM)**: Used for image segmentation and region-of-interest extraction.
-2. **Diffusion Model**: Applied for image generation, refining the design iteratively.
+2. **Diffusion Model (DM)**: Applied for image generation, refining the design iteratively.
 #### Installation and Usage
 
 We utilized Generative AI models developed by other researchers. Detailed installation and usage instructions for each model can be found at the following links:
