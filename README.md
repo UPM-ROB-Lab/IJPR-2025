@@ -1,6 +1,6 @@
 # A Novel GenAI-Aided Smart Conceptual Design Methodology using Retrieve-Prompt Based on Imaginal Thinking
 ## Introduction
-This work is based on our CIRP 2025 paper titled _A Novel GenAI-Aided Smart Conceptual Design Methodology using Retrieve-Prompt Based on Imaginal Thinking_. We propose a GenAI retrieval-prompt strategy leveraging imaginal thinking to assist in smart design. This approach realizes the iterative optimization of automotive interior image. Below, we detail the implementation process of our method.
+This work is based on our IJPR 2025 paper titled _A Novel GenAI-Aided Smart Conceptual Design Methodology using Retrieve-Prompt Based on Imaginal Thinking_. We propose a GenAI retrieve-prompt strategy leveraging imaginal thinking to assist in smart design. This approach realizes the iterative optimization of automotive interior image. Below, we detail the implementation process of our method.
 ## Dependencies
 ### Requirements:
 Our code has been tested with:
@@ -76,7 +76,7 @@ The accuracy of this model in the emotion elicitation stage of the test set is s
 
 The confusion matrix shows that positive emotions were harder to classify compared to neutral and negative emotions, as seen in the t-SNE visualization.
 ### 5. **Design evaluation: Quantization formula calculation.**
-We propose the following quantization formula for design evaluation:
+Guided by the Kansei Engineering, we propose the following quantization formula for design evaluation:
 
 $$
 Score=\sum_{i=1}^N{\left[ \left( \frac{\widetilde{M_i}}{\sum_{p=1}^N{M_p}} \right) \cdot \left( \frac{\alpha _i-\alpha _{i,\min}}{\alpha _{i,\max}-\alpha _{i,\min}} \right) \right]}+\widetilde{C}
