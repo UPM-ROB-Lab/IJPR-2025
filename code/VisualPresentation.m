@@ -49,7 +49,7 @@ while timer < duration
     %% Display stimulus screen at 5 seconds
     if mod(timer, durationPerRound) == 5
         % Select a different image file for each round. After each round, change the image (expected 16 images, 10 for cross-validation and training; 6 for testing)
-        imageFile = sprintf('D:\\CIRP2025\\experiment\\car1\\car1.jpg');
+        imageFile = sprintf('D:\\2025\\experiment\\car1\\car1.jpg');
         % Read and draw the image
         imageData = imread(imageFile); % Read image data
         texture = Screen('MakeTexture', window, imageData); % Create texture
@@ -145,7 +145,7 @@ while timer < duration
         imagePos = CenterRectOnPointd(imageRect, windowRect(3) / 4, windowRect(4) / 2);
 
         % Open file to save results, remember to modify each time to avoid confusion
-        fileID = fopen('D:\\CIRP2025\\experiment\\scheme1\\survey_1.txt', 'a'); % Open file in append mode
+        fileID = fopen('D:\\2025\\experiment\\scheme1\\survey_1.txt', 'a'); % Open file in append mode
 
         % Loop through each question and record response
         for i = 1:length(questions)

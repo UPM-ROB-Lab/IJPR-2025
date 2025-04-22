@@ -3,10 +3,10 @@ import scipy.io
 import numpy as np
 
 # Load the trained model
-model = load_model('D:\\CIRP2025\\experiment\\code\\DataModel\\bestmodel.h5')
+model = load_model('D:\\2025\\experiment\\code\\DataModel\\bestmodel.h5')
 
 # Load the data from a .mat file
-mat_file_path = 'D:\\CIRP2025\\experiment\\code\\test\\car1.mat'
+mat_file_path = 'D:\\2025\\experiment\\code\\test\\car1.mat'
 loaded_data = scipy.io.loadmat(mat_file_path)
 
 # Extract the EEG data from the loaded file

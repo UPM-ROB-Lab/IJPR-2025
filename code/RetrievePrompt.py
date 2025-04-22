@@ -92,13 +92,13 @@ print(prompt_extraction) # Output: Ergonomics, Aesthetics, Automatic transmissio
 
 '''SAM'''
 # Build the image path
-image_folder = 'D:\\CIRP2025\\experiment\\scheme'
+image_folder = 'D:\\2025\\experiment\\scheme'
 image_path = os.path.join(image_folder, f"{scheme_name}.jpg") 
 
 image = cv2.imread(image_path)
 image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
 
-sam_checkpoint = "D:\\CIRP2025\\segment-anything\\packages\\sam_vit_h_4b8939.pth"
+sam_checkpoint = "D:\\2025\\segment-anything\\packages\\sam_vit_h_4b8939.pth"
 model_type = "vit_h"
 device = "cuda"
 
@@ -192,7 +192,7 @@ from PIL import Image
 device = "cuda" if torch.cuda.is_available() else "cpu"
 
 # Use SD 1.5 model
-model_id = "D:\\CIRP2025\\stable-diffusion\\model\\stable-diffusion-v1-5"
+model_id = "D:\\2025\\stable-diffusion\\model\\stable-diffusion-v1-5"
 
 # Load the pipeline, set torch_dtype based on the device type
 try:
@@ -204,7 +204,7 @@ except Exception as e:
 # Move the pipeline to the specified device
 pipe = pipe.to(device)
 
-image2_folder = 'D:\\CIRP2025\\experiment\\scheme'
+image2_folder = 'D:\\2025\\experiment\\scheme'
 image2_path = os.path.join(image_folder, f"{modified_positions}.jpg") 
 # Load customer need modified position image and resize
 try:
@@ -232,7 +232,7 @@ except Exception as e:
 
 # Save the generated image
 try:
-    images[0].save("D:\\CIRP2025\\experiment\\scheme\\generated_image.jpg")
+    images[0].save("D:\\2025\\experiment\\scheme\\generated_image.jpg")
     print("Image has been saved.")
 except Exception as e:
     print(f"Error saving the image: {e}")

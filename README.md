@@ -28,6 +28,11 @@ We designed a 5-point Likert scale questionnaire to collect subjective feedback 
   <img src="./img/LikertScale.jpg" width="75%" />
 </div>
 
+To evaluate design images, the study recruited participants through both **online (randomly selected) and offline channels (comprising 80% university students and 20% local residents)** to ensure sample diversity. Participants were presented with these interior images in a randomized order to mitigate sequence effects and were asked to rate them using a Likert scale. Following data collection, invalid responses were discarded, and the mean scores were calculated to ensure data reliability for validating user feedback.The statistical scores of the questionnaire survey on the images are shown in the following figure.
+<div align="center">
+  <img src="./img/LikertResults.jpg" width="75%" />
+</div>
+
 ### 3. **Stimulus Flow Presentation**
 The experiment utilized the **Psychtoolbox** in MATLAB to present images sequentially. The experimenter's emotional responses were induced by observing the content of the displayed images, while EEG signals were simultaneously recorded. The related code can be found in the file [VisualPresentation.m](./code/VisualPresentation.m).
 
@@ -36,8 +41,7 @@ The experiment utilized the **Psychtoolbox** in MATLAB to present images sequent
   <img src="./img/flow.jpg" width="100%" />
 </div>
 
-The detailed experiment scene is shown in the figure below.
-
+A total of 20 healthy participants (14 males, 6 females; mean age = 24.3 years) were recruited for this study. All participants were right-handed. They were enrolled in the 'Innovative Design Thinking and AI (IDT & AI)' course at Shanghai Jiao Tong University and possessed foundational knowledge of automotive interiors. **Since our experiment employed a user-centered iterative design process, each experimental session was conducted with a single participant at a time.** The detailed experiment scene is shown in the figure below. During the experiment, participants were instructed to maintain a comfortable seated position, remain relaxed, and minimize unnecessary body movements to reduce interference from physiological artifacts in the signal recordings.
 <div align="center">
   <img src="./img/scene.jpg" width="75%" />
 </div>
@@ -190,7 +194,7 @@ We utilized Generative AI models developed by other researchers. Detailed instal
 
 The detailed flow chart of iterative optimization of retrieval prompts for automotive interiors as shown below.
 <div align="center">
-  <img src="./img/sliding.jpg" width="60%" />
+  <img src="./img/OptimFlow.jpg" width="100%" />
 </div>
 
 #### Iteration Process

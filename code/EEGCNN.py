@@ -64,7 +64,7 @@ from sklearn.model_selection import train_test_split
 def get_data4EEGNet(kernels, chans, samples):
     # Parameters: Number of kernels, number of channels, number of samples per channel
     # Replace with the correct MAT file path
-    mat_file_path = 'D:\\CIRP2025\\experiment\\code\\train\\train.mat'
+    mat_file_path = 'D:\\2025\\experiment\\code\\train\\train.mat'
     # Load the MAT file using scipy.io.loadmat
     loaded_data = scipy.io.loadmat(mat_file_path)
 
@@ -74,7 +74,7 @@ def get_data4EEGNet(kernels, chans, samples):
     print(data.shape)
     
     # Path to the Excel file containing the event labels
-    excel_file_path = 'D:\\CIRP2025\\experiment\\code\\train\\event.xlsx'
+    excel_file_path = 'D:\\2025\\experiment\\code\\train\\event.xlsx'
     df = pd.read_excel(excel_file_path, header=None)
 
     # Extract labels from the first row of the Excel sheet
@@ -131,7 +131,7 @@ def save_best_model(epoch, logs):
     # If the current accuracy is better than the previous best, save the model
     if acc > best_acc:
         best_acc = acc
-        model.save('D:\\CIRP2025\\experiment\\code\\DataModel\\bestmodel.h5')
+        model.save('D:\\2025\\experiment\\code\\DataModel\\bestmodel.h5')
         print(f'\nEpoch {epoch+1}: best model saved with val_accuracy: {best_acc:.4f}')
 
 # Create a custom callback object for saving the best model
@@ -146,7 +146,7 @@ fittedModel = model.fit(X_train, Y_train, batch_size = 16, epochs = 200,
                         callbacks=[save_best_model_callback], class_weight = class_weights)
 
 # Load the best saved model after training
-model = tf.keras.models.load_model('D:\\CIRP2025\\experiment\\code\\DataModel\\bestmodel.h5')
+model = tf.keras.models.load_model('D:\\2025\\experiment\\code\\DataModel\\bestmodel.h5')
 
 # Predict on the test set
 probs = model.predict(X_test)
@@ -169,7 +169,7 @@ cm_percent = cm / cm.sum(axis=1)[:, np.newaxis] * 100
 sns.heatmap(cm_percent, annot=True, fmt=".1f", cmap='Blues')
 plt.xlabel('Predicted label')
 plt.ylabel('True label')
-plt.savefig('D:\\CIRP2025\\experiment\\code\\DataModel\\confusion_matrix.png')  # Save the figure
+plt.savefig('D:\\2025\\experiment\\code\\DataModel\\confusion_matrix.png')  # Save the figure
 plt.show()
 
 # End the timer

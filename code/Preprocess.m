@@ -25,7 +25,7 @@ figure; pop_spectopo(EEG, 1, [16000  18995], 'EEG' , 'freq', [2 6 10 22 40], 'fr
 
 %% Save as .mat file
 variables = EEG.data;
-filename = 'D:\\CIRP2025\\experiment\\car2\\car2_judge.mat';
+filename = 'D:\\2025\\experiment\\car2\\car2_judge.mat';
 save(filename,'variables'); % Save EEG data as .mat file
 
 %% Data segmentation processing
@@ -34,7 +34,7 @@ save(filename,'variables'); % Save EEG data as .mat file
 % Loop through files from car1 to car25 (training set: car1 to car 16; verification set: car 17 to car 25)
 for carNum = 1:25
     % Create the input file path
-    inputFilename = sprintf('D:\\CIRP2025\\experiment\\car%d\\car%d.mat', carNum, carNum);
+    inputFilename = sprintf('D:\\2025\\experiment\\car%d\\car%d.mat', carNum, carNum);
     % Load the file
     loaded_data = load(inputFilename);
     % Assuming the variable name in the file is 'variables'
@@ -45,7 +45,7 @@ for carNum = 1:25
     % Use the permute function to rearrange the dimensions to (2, 34, 600)
     a_permuted = permute(a_reshaped, [3, 1, 2]);
     % Create the output file path
-    outputFilename = sprintf('D:\\CIRP2025\\experiment\\car%d\\car%d.mat', carNum);
+    outputFilename = sprintf('D:\\2025\\experiment\\car%d\\car%d.mat', carNum);
     % Save the variable to a .mat file
     save(outputFilename, 'a');
 end
@@ -57,7 +57,7 @@ end
 % Define file paths from car1 to car15 dynamically using a loop
 file_paths = cell(1, 15);
 for carNum = 1:15
-    file_paths{carNum} = sprintf('D:\\CIRP2025\\experiment\\car%d\\car%d.mat', carNum);  % Dynamically create file path for each car
+    file_paths{carNum} = sprintf('D:\\2025\\experiment\\car%d\\car%d.mat', carNum);  % Dynamically create file path for each car
 end
 
 % Initialize a cell array
@@ -77,5 +77,5 @@ disp('Dimensions of concatenated data:');
 disp(size(concatenated_data));
 
 variables = concatenated_data;
-filename = 'D:\\CIRP2025\\experiment\\code\\train\\train.mat';
+filename = 'D:\\2025\\experiment\\code\\train\\train.mat';
 save(filename, 'variables');
