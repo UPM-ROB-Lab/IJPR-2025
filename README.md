@@ -187,6 +187,12 @@ We utilized Generative AI models developed by other researchers. Detailed instal
 
 - ![Segment Anything Model - Installation and Usage](https://github.com/facebookresearch/segment-anything)
 - ![Diffusion Model - Installation and Usage](https://github.com/CompVis/stable-diffusion)
+
+The detailed flow chart of iterative optimization of retrieval prompts for automotive interiors as shown below.
+<div align="center">
+  <img src="./img/sliding.jpg" width="60%" />
+</div>
+
 #### Iteration Process
 
 In this phase, the automobile interior image was iterated three times, with each iteration focused on specific areas and objectives. The search prompts for each iteration were as follows:
