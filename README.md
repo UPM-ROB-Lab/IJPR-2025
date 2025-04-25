@@ -28,7 +28,7 @@ We designed a 5-point Likert scale questionnaire to collect subjective feedback 
   <img src="./img/LikertScale.jpg" width="75%" />
 </div>
 
-To evaluate design images, the study recruited participants through both **online (randomly selected) and offline channels (comprising 80% university students and 20% local residents)** to ensure sample diversity. Participants were presented with these interior images in a randomized order to mitigate sequence effects and were asked to rate them using a Likert scale. Following data collection, invalid responses were discarded, and the mean scores were calculated to ensure data reliability for validating user feedback.The statistical scores of the questionnaire survey on the images are shown in the following figure.
+To evaluate design images, the study recruited participants through both **online (randomly selected) and offline channels (comprising 80% university students and 20% local residents)** to ensure sample diversity. Participants were presented with these interior images in a randomized order to mitigate sequence effects and were asked to rate them using a Likert scale. Following data collection, invalid responses were discarded, and the mean scores were calculated to ensure data reliability for validating user feedback. **Each questionnaire involved the evaluation of 12 images, ultimately yielding 120 ± 10 valid scoring responses for each image.** The statistical scores of the questionnaire survey on the images are shown in the following figure.
 <div align="center">
   <img src="./img/LikertResults.jpg" width="100%" />
 </div>
