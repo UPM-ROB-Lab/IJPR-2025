@@ -1,6 +1,6 @@
-# A Novel GenAI-Aided Smart Conceptual Design Methodology using Retrieve-Prompt Based on Imaginal Thinking
+# Integrating Kansei Engineering with GenAI: A Retrieve-Prompt Enhanced Conceptual Design Framework via Imaginal Thinking
 ## Introduction
-This work is based on our IJPR 2025 paper titled _A Novel GenAI-Aided Smart Conceptual Design Methodology using Retrieve-Prompt Based on Imaginal Thinking_. We propose a GenAI retrieve-prompt strategy leveraging imaginal thinking to assist in smart design. This approach realizes the iterative optimization of automotive interior image. Below, we detail the implementation process of our method.
+This work is based on our IJPR 2025 paper titled _**Integrating Kansei Engineering with GenAI: A Retrieve-Prompt Enhanced Conceptual Design Framework via Imaginal Thinking**_. By integrating Kansei Engineering with GenAI, we propose a retrieve-prompt strategy leveraging imaginal thinking to assist in product conceptual design. This approach realizes the iterative optimization of automotive interior image. Below, we detail the implementation process of our method.
 ## Dependencies
 ### Requirements:
 Our code has been tested with:
