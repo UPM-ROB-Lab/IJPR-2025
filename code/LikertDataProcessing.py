@@ -2,11 +2,9 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 
-# 设置全局字体为 Cambria 并加粗
 plt.rcParams['font.family'] = 'Cambria'
 plt.rcParams['font.weight'] = 'bold'  # 全局字体加粗
 
-# 定义文件名
 file_names = [
     "1_42.xlsx", "2_45.xlsx", "3_43.xlsx", "4_41.xlsx", "5_45.xlsx",
     "6_41.xlsx", "7_43.xlsx", "8_43.xlsx", "9_45.xlsx",
