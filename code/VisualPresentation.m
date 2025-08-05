@@ -1,7 +1,6 @@
 clear;
 clc;
 %% Connect the EEG device
-% Initialize
 delete(instrfindall);
 s = serial('COM3', 'BaudRate', 115200);
 fopen(s);
