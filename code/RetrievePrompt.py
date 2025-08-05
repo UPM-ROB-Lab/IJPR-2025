@@ -9,7 +9,7 @@ import sys
 sys.path.append("..")
 
 '''Prompt'''
-# Define the parsing function
+# Define the parsing function 
 def parse_prompt(prompt):
     # Split the string by semicolon
     parts = prompt.split('; ')
