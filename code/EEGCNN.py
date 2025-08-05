@@ -9,7 +9,6 @@ from tensorflow.keras.layers import SpatialDropout2D
 from tensorflow.keras.layers import Input, Flatten
 from tensorflow.keras.constraints import max_norm
 
-
 def EEGNet(nb_classes, Chans = 34, Samples = 600, 
              dropoutRate = 0.5, kernLength = 64, F1 = 8, 
              D = 2, F2 = 16, norm_rate = 0.25, dropoutType = 'Dropout'):
