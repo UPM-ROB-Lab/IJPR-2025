@@ -1,7 +1,6 @@
 from keras.models import load_model
 import scipy.io
 import numpy as np
-
 # Load the trained model
 model = load_model('D:\\2025\\experiment\\code\\DataModel\\bestmodel.h5')
 
