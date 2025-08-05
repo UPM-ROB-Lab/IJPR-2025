@@ -4,6 +4,7 @@ EEG = pop_select( EEG, 'channel',{'Fp1','Fp2','AF3','AF4','Fz','F3','F4','F7','F
 EEG = pop_eegfiltnew(EEG, 'locutoff',0.3,'hicutoff',50,'plotfreqz',1); % Apply bandpass filter (0.3 to 50 Hz)
 EEG = pop_resample( EEG, 200); % Resample the EEG data to 200 Hz
 
+
 % Extract emotion elicitation phase signals (total 42s, can be divided into 7*6s / 14*3s / 42*1s)
 % EEG = pop_epoch( EEG, {  '1'  }, [2  44], 'newname', ' feiyu_chueng_train resampled epochs', 'epochinfo', 'yes');
 
